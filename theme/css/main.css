@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.els,
+body {
+    background: #fff
+}
+
+.paginator {
+  display: table;
+  margin: 2em auto;
+}
+.paginator a {
+  padding: 10px;
+}
+
+p.tags a {
+  text-decoration: none;
+  padding: 3px 5px;
+}
+p.tags a:link {
+  background-color: #97748f;
+  color: white;
+}
+p.tags a:visited {
+  background-color: #8490ad;
+  color: white;
+}
+p.tags a:hover {
+  background-color: white;
+  color: black;
+  text-decoration: underline;;
+}
+
+.el.x {
+    background: #A4E6D1;
+}
+.el.nav {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.el.longform {
+    background: rgba(166, 205, 217, 0.42);
+}
+
+.el.longform .tags {
+    color: #8c6764;
+}
+
+.el.longform p {
+    padding-top: 10px;
+}
+
+.el.longform .category {
+    display: none;
+}
+
+.date {
+    color: #c8b3b2;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-family: monospace;
+}
+
+.el.chirps {
+    background: #333;
+}
+
+.el.chirps p {
+    padding-top: 10px;
+}
+
+.el.chirps .content {
+    color: #FBFFDD;
+    font-family: monospace;
+}
+.el.chirps .content a {
+  color: white;
+}
+
+.el.longform .content {
+    /* nothing yet */
+}
+
+.el.project {
+    background: #8C6764
+}
+
+.el.outbound {
+    background: #aca6d9
+}
+
+.el.voicememo {
+    background: #e1ddff
+}
+
+.el.review {
+    background: #64898c
+}
+
+.el.quote {
+    background: silver
+}
+
+.el.travel {
+    background: #eee
+}
+
+.el.doodle,
+.el.image,
+.el.video {
+    background: #aaa;
+}
+
+.el.image img {
+    /* imgs are usually wider than they are high, so specify width first. */
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.el h3 {
+      margin-top: 20%;
+}
+h3 a {
+    text-decoration: none;
+    color: #666;
+}
+
+.el p.summary {
+    display:none
+}
+
+.el.icon {
+    right: 30px
+}
+
+*,
+:after,
+:before {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.els:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.els {
+    width: 100%;
+    padding-left: 10px
+}
+
+.el {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    padding: 10px
+}
+
+.elw2 {
+    width: 410px
+}
+
+.elh2 {
+    height: 410px
+}
+
+.elgutter {
+    width: 10px
+}
+
+.elcoll {
+    width: 200px
+}
+
+.el>* {
+    margin: 0;
+    padding: 0
+}
+
+/* pages */
+
+blockquote {
+    border-left: 5px solid #aca6d9;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+
+blockquote:before {
+    color: #aca6d9;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Juan Uys' personal website</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="/theme/css/main.css"/>
+
+
+
+    <meta name="tags" content="tech" />
+    <meta name="tags" content="java" />
+
+</head>
+
+<body id="index" class="home">
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/db-bean-creator-for-java-and-mysql-postgresql.html" rel="bookmark"
+         title="Permalink to DB Bean Creator for Java and MySQL/PostgresQL">DB Bean Creator for Java and MySQL/PostgresQL</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2002-05-30T00:00:00+01:00">
+      2002-05-30
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/juan-uys.html">Juan Uys</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>I present the <a href="/projects/dbbeancreator">DB Bean Creator for Java and MySQL/PostgresQL</a>.</p>
+<p>When you have finished designing your database, you start to code the beans to interface with it. Making changes to the DB means making changes to the beans. This is time consuming and costly.</p>
+<p>The DB Bean Creator looks at your database (PostgresQL and MySQL are currently supported) and creates all the beans on the fly.</p>
+<h1>What to do</h1>
+<p>Basically, create an HTML page with the following <a href="/projects/dbbeancreator/dbbeancreator/form.html">form snippet</a>.</p>
+<p><a href="/projects/dbbeancreator/dbbeancreator/CreateDBBean.java">The servlet</a> should be compiled and put in a servlet container (like Tomcat).</p>
+<p>Also, put <a href="/projects/dbbeancreator/dbbeancreator/org.gjt.tw.dbobjects.tar.gz">this</a> into your app. It's some oooold DB persistance stuff someone devved years ago. It hasn't been updated since 2001, but I modified it a little to fit my script.</p>
+<p>When you submit the form, the servlet will spew out bean code, and/or create the sources as specified.</p>
+<h1>All of it</h1>
+<p><a href="/projects/dbbeancreator/dbbeancreator.tgz">dbbeancreator.tgz</a> (23,678 bytes)</p>
+<p>Happy coding. I hope this shaves hours off your dev time too :-) Now you can get the DB schema perfect, and adapt the code on the run.</p>
+<h1>Future developments:</h1>
+<ul>
+<li>Tag libraries to utilise the beans</li>
+<li>JUnit test cases</li>
+<li>Get the servlet to work with newer/better persistance libraries</li>
+</ul>
+  </div><!-- /.entry-content -->
+</section>
+
+
+  <script src='/theme/js/jquery.min.js'></script>
+	<script src='/theme/js/isotope.pkgd.min.js'></script>
+	<script src="/theme/js/index.js"></script>
+</body>
+</html>

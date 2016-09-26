@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Juan Uys' personal website</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="/theme/css/main.css"/>
+
+
+
+    <meta name="tags" content="tech" />
+
+</head>
+
+<body id="index" class="home">
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/my-new-favourite-way-to-pretty-print-json-in-vim.html" rel="bookmark"
+         title="Permalink to Pretty-print JSON in vim">Pretty-print JSON in vim</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2013-11-05T00:00:00+00:00">
+      2013-11-05
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/juan-uys.html">Juan Uys</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p><img src="http://distilleryimage10.ak.instagram.com/09fde780461511e3924b22000aaa05e0_8.jpg" width="50%" align="right" alt="jq to the res-q."> <strong> <em>TL;DR</em> A quick way to pretty-print JSON in vim with no dependencies (here's looking at you, Perl). Download <a href="http://stedolan.github.io/jq/">jq</a> then <code>:%!jq '.'</code></strong></p>
+<p><del>Computational statisticians</del>Data scientists have some the funnest tools, and I found a good write-up of a few more I didn't know about called <a href="http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html">7 command-line tools for data science</a>. The first thing the article mentions is a gem called <a href="http://stedolan.github.io/jq/">jq</a>.</p>
+<p>I found jq to be especially useful for formatting JSON in vim. So, before ado can in any way be furthered:</p>
+<p><code>curl http://stedolan.github.io/jq/download/linux64/jq -o ~/bin/jq</code>
+<span style='display:block;'>&nbsp;</span>
+<code>chmod +x ~/bin/jq</code></p>
+<p>In vim, open your unformatted JSON file, then: <code>:%!jq '.'</code>.</p>
+<p>There you go, ladies and gents &mdash; a command so short, you don't even need to put it in your vimrc!</p>
+  </div><!-- /.entry-content -->
+</section>
+
+
+  <script src='/theme/js/jquery.min.js'></script>
+	<script src='/theme/js/isotope.pkgd.min.js'></script>
+	<script src="/theme/js/index.js"></script>
+</body>
+</html>

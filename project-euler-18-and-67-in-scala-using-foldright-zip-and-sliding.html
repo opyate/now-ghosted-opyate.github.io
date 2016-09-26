@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Juan Uys' personal website</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="/theme/css/main.css"/>
+
+
+
+    <meta name="tags" content="scala" />
+
+</head>
+
+<body id="index" class="home">
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/project-euler-18-and-67-in-scala-using-foldright-zip-and-sliding.html" rel="bookmark"
+         title="Permalink to Project Euler 18 and 67 in Scala using foldRight, zip and sliding">Project Euler 18 and 67 in Scala using foldRight, zip and sliding</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2013-11-28T00:00:00+00:00">
+      2013-11-28
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/juan-uys.html">Juan Uys</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p><img src="http://distilleryimage6.ak.instagram.com/267f6626581311e3986c12b308e0cf9c_8.jpg" width="50%" align="right"> I've recently applied to <a href="http://www.toptal.com/?ref=14568">Toptal</a> and sucked miserably at the entry exam. My algo chops were blunt and I thought I'd rectify it by revisiting <a href="http://projecteuler.net/">Project Euler</a>. With the startup last year and the baby this year I just haven't been able to find the time for programming challenges, but that has to change.</p>
+<p>Looking at my Project Euler source directory, I saw that I left it at <a href="http://projecteuler.net/problem=17">problem 17</a>, so next up will be <a href="http://projecteuler.net/problem=18">18</a>. The problem description, however, mentions that the <a href="http://projecteuler.net/problem=67">problem repeats itselt as 67</a>, but with a bigger input that will run 20 billion years if you go the brute force route.</p>
+<p>I worked a little on this problem last night, and decided to by-pass the brute force solution completely. It was a bit late, though, and I pulled my eyelids open far enough to make it to bed. I then went on to dream about the damn problem all night. I knew there had to be a simple bottom-up fold-based solution, and the <em>voila</em> moment came for me when I realised I had to seed the fold computation with the base layer in the triangle.</p>
+<p>Here you go:</p>
+<p><a href="https://gist.github.com/opyate/7689573">https://gist.github.com/opyate/7689573</a></p>
+<h1>A little explanation</h1>
+<p>The triangle is represented as a nested list, like so: <strong>List(List(1), List(2, 3), List(4, 5, 6))</strong> and so forth.</p>
+<pre>
+
+     1
+    / \
+   2   3
+  / \ / \
+ 4   5   6    <- this is the "base layer" in my explanation.
+</pre>
+
+<p>Since you need to add the maximum of the two immediate children to the layer above, a foldRight wouldn't give me all the info I need in the curent iteration. Foldright for me means "the data is coming FROM the right", i.e. <strong>List(4, 5, 6)</strong> will be processed first, then <strong>List(2, 3)</strong> but at no point in the iteration will they be available together so I can do the sum. <strong>List(4, 5, 6)</strong> would need to come into the iteration with <strong>List(2, 3)</strong> in another way, and I realised I can use the foldRight's accumulator for that by seeding the foldRight with the base layer in the triangle (aka the last list <strong>List(4, 5, 6)</strong>).</p>
+<p>The easiest way was to just seed the foldRight with a list of zeros one element larger than the base layer. You then break it up into pairs using <strong>sliding(2,1)</strong>, take the max of the pairs, and sum the max with the corresponding (thanks to <strong>zip</strong>) element in the layer above.</p>
+<pre>
+
+      1
+     / \
+    2   3
+   / \ / \
+  4   5   6
+ / \ / \ / \
+0   0   0   0    <- this becomes the new "base layer", or "seed"
+</pre>
+
+<p>No mutable state; no recursion; simple to understand. As <a href="http://www.applied-duality.com">Erik Meijer</a> would say: "baby code".</p>
+  </div><!-- /.entry-content -->
+</section>
+
+
+  <script src='/theme/js/jquery.min.js'></script>
+	<script src='/theme/js/isotope.pkgd.min.js'></script>
+	<script src="/theme/js/index.js"></script>
+</body>
+</html>

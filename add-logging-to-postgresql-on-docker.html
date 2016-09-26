@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Juan Uys' personal website</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="/theme/css/main.css"/>
+
+
+
+    <meta name="tags" content="postgresql" />
+    <meta name="tags" content="docker" />
+
+</head>
+
+<body id="index" class="home">
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/add-logging-to-postgresql-on-docker.html" rel="bookmark"
+         title="Permalink to Add logging to PostgresQL on Docker">Add logging to PostgresQL on Docker</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2015-06-17T00:00:00+01:00">
+      2015-06-17
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/juan-uys.html">Juan Uys</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Normally, in <code>docker-compose.yml</code>  I would just configure a database like this:</p>
+<div class="highlight"><pre><span></span><span class="n">db</span><span class="o">:</span>
+  <span class="n">image</span><span class="o">:</span> <span class="n">postgres</span><span class="o">:</span><span class="mf">9.4</span>
+</pre></div>
+
+
+<p>However, to customise the image, we use our own Dockerfile:</p>
+<div class="highlight"><pre><span></span>FROM postgres:9.4
+ADD config.sh /docker-entrypoint-initdb.d/
+</pre></div>
+
+
+<p>The contents of <code>config.sh</code>:</p>
+<div class="highlight"><pre><span></span>perl -pi -e &quot;s/#log_statement = &#39;none&#39;/log_statement = &#39;all&#39;/g&quot; \
+/var/lib/postgresql/data/postgresql.conf
+</pre></div>
+
+
+<p>And <code>docker-compose.yml</code> now becomes:</p>
+<div class="highlight"><pre><span></span><span class="n">db</span><span class="o">:</span>
+  <span class="n">build</span><span class="o">:</span> <span class="n">location</span><span class="sr">/of/new/docker/</span><span class="n">file</span>
+</pre></div>
+
+
+<p>Link your app, launch the stack, and start seeing log statements on STDIN:</p>
+<div class="highlight"><pre><span></span>db_1         | LOG:  statement: BEGIN
+db_1         | LOG:  statement: SELECT etc etc
+</pre></div>
+  </div><!-- /.entry-content -->
+</section>
+
+
+  <script src='/theme/js/jquery.min.js'></script>
+	<script src='/theme/js/isotope.pkgd.min.js'></script>
+	<script src="/theme/js/index.js"></script>
+</body>
+</html>
